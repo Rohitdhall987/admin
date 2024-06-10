@@ -4,13 +4,15 @@ function AddSong() {
     // State to hold the selected files
     const [thumbnail, setThumbnail] = useState(null);
     const [audio, setAudio] = useState(null);
+    const [title, setTitle] = useState(null);
+    const [singer, setSinger] = useState(null);
 
     // Handler for form submission
     const handleSubmit = async (event) => {
         event.preventDefault(); // Prevent default form submission
 
-        if (!thumbnail || !audio) {
-            alert('Both thumbnail and audio files are required!');
+        if (!thumbnail || !audio || !title || !singer) {
+            alert('all files are required!');
             return;
         }
 
@@ -18,6 +20,8 @@ function AddSong() {
         const formData = new FormData();
         formData.append('thumbnail', thumbnail);
         formData.append('audio', audio);
+        formData.append('title', title);
+        formData.append('singer', singer);
 
         try {
             // Make a POST request to upload the files using fetch
@@ -46,6 +50,10 @@ function AddSong() {
     return (
         <>
             <form onSubmit={handleSubmit}>
+                <p>Title:</p>
+                <input type="text" onChange={(e) => setTitle(e.target.value)} />
+                <p>Singer:</p>
+                <input type="text"  onChange={(e) => setSinger(e.target.value)} />
                 <p>Thumbnail:</p>
                 <input type="file" accept="image/png" onChange={(e) => setThumbnail(e.target.files[0])} />
                 <p>Audio file:</p>
