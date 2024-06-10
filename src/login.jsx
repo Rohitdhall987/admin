@@ -4,22 +4,6 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
 
 
-    useEffect(()=>{
-        fetch('/api', {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          })
-          .then(response => response.json())
-          .then(data => {
-            console.log(data);
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
-    },[]);
-
 
 
     const [formType, setFormType] = useState(true); // true for login, false for register
@@ -123,7 +107,7 @@ function Login() {
     };
 
     return (
-        <div style={{ maxWidth: '400px', margin: '0 auto', padding: '20px', textAlign: 'center' }}>
+        <div >
             {formType ? (
                 <form onSubmit={submitLogin}>
                     <h2>Login</h2>
@@ -132,7 +116,7 @@ function Login() {
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
+                     
                         required
                     />
                     <input
@@ -140,12 +124,12 @@ function Login() {
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
+                        
                         required
                     />
-                    <button type="submit" style={{ padding: '10px 20px', cursor: 'pointer' }}>Login</button>
+                    <button type="submit">Login</button>
                     <br />
-                    <a onClick={toggleForm} style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline', marginTop: '10px', display: 'inline-block' }}>
+                    <a onClick={toggleForm} >
                         Create account
                     </a>
                 </form>
@@ -157,7 +141,7 @@ function Login() {
                         placeholder="Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
+                       
                         required
                     />
                     <input
@@ -165,7 +149,7 @@ function Login() {
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
+                       
                         required
                     />
                     <input
@@ -173,10 +157,10 @@ function Login() {
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
+                        
                         required
                     />
-                    <button type="submit" style={{ padding: '10px 20px', cursor: 'pointer' }}>Register</button>
+                    <button type="submit" >Register</button>
                     <br />
                     <a onClick={toggleForm} >
                         Have an account

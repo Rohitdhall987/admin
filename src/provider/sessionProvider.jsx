@@ -11,9 +11,13 @@ function SessionProvider({children}){
     useEffect(()=>{
 
         if (exemptedRoutes.includes(location.pathname)) return;
-        setTimeout(()=>{
-            navigate("/");
-        },1000);
+        
+            const token=localStorage.getItem("token");
+
+            if(token==null){
+                navigate("/");
+            }
+      
     });
 
     const exemptedRoutes = [ '/',];
