@@ -27,7 +27,10 @@ function AddSong() {
             // Make a POST request to upload the files using fetch
             const response = await fetch('/api/songs/addSong', {
                 method: 'POST',
-                body: formData
+                body: formData,
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`,
+                }
             });
 
             if (response.ok) {
@@ -38,12 +41,12 @@ function AddSong() {
             } else {
                 const errorData = await response.json();
                 console.error('Error uploading files:', errorData);
-                alert('Failed to upload files.');
+                alert('Failed to upload files. (err)');
             }
         } catch (error) {
             // Handle fetch errors
             console.error('Error uploading files:', error);
-            alert('Failed to upload files.');
+            alert('Failed to upload files. (catch)');
         }
     };
 
