@@ -6,36 +6,63 @@ function Home() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchSongs = async () => {
-            try {
-                const response = await fetch('/api/songs/getSongs', {
-                    method: 'POST',
-                    headers: {
-                        "Authorization": `Bearer ${localStorage.getItem("token")}`,
-                        "Content-Type": "application/json",
-                    }
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    setSongData(data);
-                    console.log(data);
-                } else {
-                    const errorData = await response.json();
-                    console.error('Error:', errorData);
-                    setError('Failed to fetch songs. Please try again later.');
+    const fetchSongs = async () => {
+        try {
+            const response = await fetch('/api/songs/getSongs', {
+                method: 'POST',
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`,
+                    "Content-Type": "application/json",
                 }
-            } catch (error) {
-                console.error('Fetch error:', error);
-                setError('An unexpected error occurred. Please try again later.');
-            } finally {
-                setLoading(false);
-            }
-        };
+            });
 
+            if (response.ok) {
+                const data = await response.json();
+                setSongData(data);
+                console.log(data);
+            } else {
+                const errorData = await response.json();
+                console.error('Error:', errorData);
+                setError('Failed to fetch songs. Please try again later.');
+            }
+        } catch (error) {
+            console.error('Fetch error:', error);
+            setError('An unexpected error occurred. Please try again later.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
         fetchSongs();
     }, []);
+
+
+    const deleteSong=async(_id)=>{
+        try {
+            const response = await fetch('/api/songs/deleteById', {
+                method: 'POST',
+                body: JSON.stringify({ id: _id }),
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`,
+                    "Content-Type": "application/json",
+                }
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                fetchSongs();
+                console.log(data);
+            } else {
+                const errorData = await response.json();
+                console.error('Error:', errorData);
+                setError('Failed to fetch songs. Please try again later.');
+            }
+        } catch (error) {
+            console.error('Fetch error:', error);
+            setError('An unexpected error occurred. Please try again later.');
+    }
+}
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
@@ -76,7 +103,7 @@ function Home() {
                                     </td>
                                     <td>
                                         <button>Update</button>
-                                        <button>Delete</button>
+                                        <button onClick={()=>deleteSong(song._id)}>Delete</button>
                                     </td>
                                 </tr>
                             ))}
