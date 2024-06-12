@@ -79,13 +79,13 @@ function Login() {
                 <div className='bg-gray-400 bg-opacity-30 rounded-md text-white p-3 text-center w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/4 '>
                     {formType ? (
                         <form  onSubmit={submitLogin}>
-                            <h2 className='text-xl pb-4' >Login</h2>
+                            <h2 className='text-xl pb-4' >{"Welcome :)"}</h2>
                             <div className='flex flex-col '>
                             <input
                                 type="email"
                                 placeholder="Email"
                                 value={email}
-                                className='text-black h-10 rounded mb-4 p-2'
+                                className='text-black h-10 rounded mb-4 p-2 focus:outline-none focus:ring-orange-500 focus:ring-2'
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
                             />
@@ -94,11 +94,14 @@ function Login() {
                                 placeholder="Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className='text-black h-10 rounded mb-4 p-2'
+                                className='text-black h-10 rounded mb-4 p-2 focus:outline-none focus:ring-orange-500 focus:ring-2'
                                 required
                             />
 
-                            <button type="submit">Login</button>
+
+                            <button type="submit" className="button-64" role="button"><span class="text">Login</span></button>
+
+                            
                             </div>
 
                             <hr className='my-3 '/>
@@ -109,13 +112,14 @@ function Login() {
                         </form>
                     ) : (
                         <form onSubmit={submitRegister}>
-                            <h2>Register</h2>
+                            <h2 className='text-xl pb-4' >{"Welcome :)"}</h2>
+                            <div className='flex flex-col '>
                             <input
                                 type="text"
                                 placeholder="Name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
-                                className='text-black'
+                                className='text-black h-10 rounded mb-4 p-2 focus:outline-none focus:ring-orange-500 focus:ring-2'
                                 required
                             />
                             <input
@@ -123,7 +127,7 @@ function Login() {
                                 placeholder="Email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className='text-black'
+                                className='text-black h-10 rounded mb-4 p-2 focus:outline-none focus:ring-orange-500 focus:ring-2'
                                 required
                             />
                             <input
@@ -131,11 +135,12 @@ function Login() {
                                 placeholder="Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className='text-black'
+                                className='text-black h-10 rounded mb-4 p-2 focus:outline-none focus:ring-orange-500 focus:ring-2'
                                 required
                             />
-                            <button type="submit" >Register</button>
-                            <br />
+                            <button type="submit" className="button-64" role="button"><span class="text">Register</span></button>
+                            </div>
+                            <hr className='my-3 '/>
                             <a onClick={toggleForm}  className='cursor-pointer'>
                                 Have an account
                             </a>
