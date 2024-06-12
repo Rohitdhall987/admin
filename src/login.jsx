@@ -20,22 +20,7 @@ function Login() {
         e.preventDefault();
 
         try {
-            // const response = await fetch('/api/admin_users/login', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({ email, password }),
-            // });
 
-            // const data = await response.json();
-
-            // if (response.ok) {
-            //     localStorage.setItem('token', data.token); // Store the new token
-            //     navigate('/home');
-            // } else {
-            //     console.error(data.message);
-            // }
             fetch('/api/admin_users/login', {
                 method: 'POST',
                 headers: {
@@ -65,24 +50,6 @@ function Login() {
         e.preventDefault();
 
         try {
-            // const response = await fetch('/api/admin_users/register', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({ name, email, password }),
-            // });
-
-            // console.log(response);
-
-            // const data =  response.body();
-
-            // if (response.ok) {
-            //     localStorage.setItem('token', data.token); // Store the new token
-            //     navigate('/home');
-            // } else {
-            //     console.error(data.message);
-            // }
             fetch('/api/admin_users/register', {
                 method: 'POST',
                 headers: {
