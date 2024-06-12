@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -16,7 +16,7 @@ function Login() {
         setFormType(!formType);
     };
 
-    const submitLogin =  (e) => {
+    const submitLogin = (e) => {
         e.preventDefault();
 
         try {
@@ -39,29 +39,29 @@ function Login() {
             fetch('/api/admin_users/login', {
                 method: 'POST',
                 headers: {
-                  'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ email, password }),
-              })
-              .then(response => response.json())
-              .then(data => {
-                console.log(data);
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
 
-                if(data.token !=null){
-                    localStorage.setItem('token', data.token); // Store the new token
-                    navigate('/home');
-                }
+                    if (data.token != null) {
+                        localStorage.setItem('token', data.token); // Store the new token
+                        navigate('/home');
+                    }
 
-              })
-              .catch(error => {
-                console.error('Error:', error);
-              });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         } catch (error) {
             console.error('Error during login:', error);
         }
     };
 
-    const submitRegister =  (e) => {
+    const submitRegister = (e) => {
         e.preventDefault();
 
         try {
@@ -86,87 +86,94 @@ function Login() {
             fetch('/api/admin_users/register', {
                 method: 'POST',
                 headers: {
-                  'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ name, email, password }),
-              })
-              .then(response => response.json())
-              .then(data => {
-                console.log(data);
-                if(data.token !=null){
-                    localStorage.setItem('token', data.token); // Store the new token
-                    navigate('/home');
-                }
-              })
-              .catch(error => {
-                console.error('Error:', error);
-              });
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.token != null) {
+                        localStorage.setItem('token', data.token); // Store the new token
+                        navigate('/home');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         } catch (error) {
             console.error('Error during registration:', error);
         }
     };
 
     return (
-        <div >
-            {formType ? (
-                <form onSubmit={submitLogin}>
-                    <h2>Login</h2>
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                     
-                        required
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        
-                        required
-                    />
-                    <button type="submit">Login</button>
-                    <br />
-                    <a onClick={toggleForm} >
-                        Create account
-                    </a>
-                </form>
-            ) : (
-                <form onSubmit={submitRegister}>
-                    <h2>Register</h2>
-                    <input
-                        type="text"
-                        placeholder="Name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                       
-                        required
-                    />
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                       
-                        required
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        
-                        required
-                    />
-                    <button type="submit" >Register</button>
-                    <br />
-                    <a onClick={toggleForm} >
-                        Have an account
-                    </a>
-                </form>
-            )}
+        <div className='flex items-center justify-center h-screen'>
+
+                <div className='bg-gray-400 bg-opacity-30 rounded-md text-white p-3 text-center w-3/12'>
+                    {formType ? (
+                        <form  onSubmit={submitLogin}>
+                            <h2 className='text-xl pb-4' >Login</h2>
+                            <div className='flex flex-col '>
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                value={email}
+                                className='text-black h-10 rounded mb-4 p-2'
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className='text-black h-10 rounded mb-4 p-2'
+                                required
+                            />
+
+                            <button type="submit">Login</button>
+                            </div>
+
+                            <a onClick={toggleForm} className='cursor-pointer'>
+                                Create account
+                            </a>
+                        </form>
+                    ) : (
+                        <form onSubmit={submitRegister}>
+                            <h2>Register</h2>
+                            <input
+                                type="text"
+                                placeholder="Name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                className='text-black'
+                                required
+                            />
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className='text-black'
+                                required
+                            />
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className='text-black'
+                                required
+                            />
+                            <button type="submit" >Register</button>
+                            <br />
+                            <a onClick={toggleForm}  className='cursor-pointer'>
+                                Have an account
+                            </a>
+                        </form>
+                    )}
+                </div>
+
         </div>
     );
 }

@@ -8,6 +8,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import './index.css';
 
 
 
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
     children:[
       {
         path:"/",
+        element:<Login/>
+      },
+      {
+        path:"/login",
         element:<Login/>
       },
       {
