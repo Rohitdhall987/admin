@@ -109,7 +109,7 @@ function Login() {
     return (
         <div className='flex items-center justify-center h-screen'>
 
-                <div className='bg-gray-400 bg-opacity-30 rounded-md text-white p-3 text-center w-3/12'>
+                <div className='bg-gray-400 bg-opacity-30 rounded-md text-white p-3 text-center w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/4 '>
                     {formType ? (
                         <form  onSubmit={submitLogin}>
                             <h2 className='text-xl pb-4' >Login</h2>
@@ -133,6 +133,8 @@ function Login() {
 
                             <button type="submit">Login</button>
                             </div>
+
+                            <hr className='my-3 '/>
 
                             <a onClick={toggleForm} className='cursor-pointer'>
                                 Create account
