@@ -122,14 +122,14 @@ function Home() {
     </nav>
     
 
-    <div class="flex flex-1 bg-gray-100">
+    <div class="grid grid-cols-12 flex-1 bg-gray-100">
 
-        <div class="bg-gray-600 w-1/4 p-4">
+        <div class="bg-gray-600 col-span-6 p-4">
             <p class="text-white">Sidebar Content</p>
         </div>
         
 
-        <div class="bg-blue-500 flex-1 p-4">
+        <div class="bg-blue-500 col-span-6  p-4">
             <p class="text-white">Main Content</p>
         </div>
     </div>
