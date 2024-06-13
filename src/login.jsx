@@ -99,7 +99,7 @@ function Login() {
                             />
 
 
-                            <button type="submit" className="button-64" role="button"><span class="text">Login</span></button>
+                            <button type="submit" className="button-64" role="button"><span className="text">Login</span></button>
 
                             
                             </div>
@@ -138,7 +138,7 @@ function Login() {
                                 className='text-black h-10 rounded mb-4 p-2 focus:outline-none focus:ring-orange-500 focus:ring-2'
                                 required
                             />
-                            <button type="submit" className="button-64" role="button"><span class="text">Register</span></button>
+                            <button type="submit" className="button-64" role="button"><span className="text">Register</span></button>
                             </div>
                             <hr className='my-3 '/>
                             <a onClick={toggleForm}  className='cursor-pointer'>

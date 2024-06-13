@@ -7,18 +7,15 @@ body {
     height: 100vh;
     width: 100%;
 
-    /* Set the background image */
+
     background-image: url("../public/musicbg.png");
     
-    /* Prevent the background image from repeating */
     background-repeat: no-repeat;
     
-    /* Make the background image fit the entire window */
     background-size: cover;
     
     background-position: center;
     
-    /* Optional: If you want the background to stay fixed during scrolling */
     background-attachment: fixed;
 
 
@@ -31,10 +28,10 @@ html{
 }
 
 
-/* CSS */
+
 .button-64 {
   align-items: center;
-  background-image: linear-gradient(144deg,rgb(249, 115, 22,100%), rgb(249, 22, 120));
+  background-image: linear-gradient(315deg, rgb(249, 22, 120),rgb(249, 115, 22,100%));
   border: 0;
   border-radius: 4px;
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
