@@ -80,3 +80,7 @@ html{
 .card {
   @apply bg-gray-400 m-2 bg-opacity-20 rounded-md text-white p-3 ;
 }
+
+.menu-item{
+  @apply my-2 flex py-2;
+}
