@@ -7,8 +7,12 @@ function Login() {
     useEffect(()=>{
         const token=localStorage.getItem("token");
 
-            if(token!=null){
-                navigate("/dashboard");
+            if(location.pathname == "/login"){
+                return;
+            }else{
+                if(token!=null){
+                    navigate("/dashboard");
+                }
             }
     });
 

@@ -9,6 +9,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css';
+import 'material-icons/iconfont/material-icons.css'; // Import Material Icons CSS
 
 
 

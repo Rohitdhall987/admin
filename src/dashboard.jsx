@@ -5,6 +5,8 @@ import Sidebar from './dashBoardComponents/Sidebar';
 
 
 
+
+
 function Content() {
   const { id } = useParams();
 
@@ -31,8 +33,13 @@ function Content() {
 function Dashboard() {
   return (
     <div className="h-screen flex flex-col">
-      <nav className="card">
-        <h1 className="text-xl text-white font-bold">Admin Panel</h1>
+      <nav className="card ">
+      <div className='flex items-center'>
+        <span className="material-icons" >
+          menu
+        </span>
+        <h1 className="text-xl font-bold px-2">Admin Panel</h1>
+      </div>
       </nav>
       <div className="grid grid-cols-12 flex-1">
         <Sidebar />
