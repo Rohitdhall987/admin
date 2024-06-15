@@ -15,12 +15,12 @@ function SessionProvider({children}){
             const token=localStorage.getItem("token");
 
             if(token==null){
-                navigate("/");
+                navigate("/login");
             }
       
     });
 
-    const exemptedRoutes = [ '/',];
+    const exemptedRoutes = [ '/login',];
 
     return children;
 }

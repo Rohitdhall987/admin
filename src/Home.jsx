@@ -1,140 +1,53 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route, Link, useParams } from 'react-router-dom';
 
-function Home() {
-//     const [songData, setSongData] = useState(null);
-//     const [loading, setLoading] = useState(true);
-//     const [error, setError] = useState(null);
-
-//     const fetchSongs = async () => {
-//         try {
-//             const response = await fetch('/api/songs/getSongs', {
-//                 method: 'POST',
-//                 headers: {
-//                     "Authorization": `Bearer ${localStorage.getItem("token")}`,
-//                     "Content-Type": "application/json",
-//                 }
-//             });
-
-//             if (response.ok) {
-//                 const data = await response.json();
-//                 setSongData(data);
-//                 console.log(data);
-//             } else {
-//                 const errorData = await response.json();
-//                 console.error('Error:', errorData);
-//                 setError('Failed to fetch songs. Please try again later.');
-//             }
-//         } catch (error) {
-//             console.error('Fetch error:', error);
-//             setError('An unexpected error occurred. Please try again later.');
-//         } finally {
-//             setLoading(false);
-//         }
-//     };
-
-//     useEffect(() => {
-//         fetchSongs();
-//     }, []);
-
-
-//     const deleteSong=async(_id)=>{
-//         try {
-//             const response = await fetch('/api/songs/deleteById', {
-//                 method: 'POST',
-//                 body: JSON.stringify({ id: _id }),
-//                 headers: {
-//                     "Authorization": `Bearer ${localStorage.getItem("token")}`,
-//                     "Content-Type": "application/json",
-//                 }
-//             });
-
-//             if (response.ok) {
-//                 const data = await response.json();
-//                 fetchSongs();
-//                 console.log(data);
-//             } else {
-//                 const errorData = await response.json();
-//                 console.error('Error:', errorData);
-//                 setError('Failed to fetch songs. Please try again later.');
-//             }
-//         } catch (error) {
-//             console.error('Fetch error:', error);
-//             setError('An unexpected error occurred. Please try again later.');
-//     }
-// }
-
-//     if (loading) return <p>Loading...</p>;
-//     if (error) return <p>{error}</p>;
-
-    return (
-        // <div>
-        //     <h1>Admin Panel</h1>
-        //     <div>
-        //         <Link to="/addSong">
-        //             <button>Add new song</button>
-        //         </Link>
-        //     </div>
-        //     <div>
-        //         {songData && songData.length > 0 ? (
-        //             <table>
-        //                 <thead>
-        //                     <tr>
-        //                         <th>Id</th>
-        //                         <th>Thumbnail</th>
-        //                         <th>Title</th>
-        //                         <th>Audio File Name</th>
-        //                         <th>Audio File</th>
-        //                         <th>Action</th>
-        //                     </tr>
-        //                 </thead>
-        //                 <tbody>
-        //                     {songData.map(song => (
-        //                         <tr key={song._id}>
-        //                             <td>{song._id}</td>
-        //                             <td><img src={"http://localhost:5000"+song.thumbnailPath} alt={`Thumbnail of ${song.title}`} /></td>
-        //                             <td>{song.title}</td>
-        //                             <td>{song.fileName}</td>
-        //                             <td>
-        //                                 <audio controls>
-        //                                     <source src={"http://localhost:5000"+song.filePath} type="audio/mpeg" />
-        //                                     Your browser does not support the audio element.
-        //                                 </audio>
-        //                             </td>
-        //                             <td>
-        //                                 <button>Update</button>
-        //                                 <button onClick={()=>deleteSong(song._id)}>Delete</button>
-        //                             </td>
-        //                         </tr>
-        //                     ))}
-        //                 </tbody>
-        //             </table>
-        //         ) : (
-        //             <p>No songs found</p>
-        //         )}
-        //     </div>
-        // </div>
-
-        <div class="h-screen flex flex-col">
-
-    <nav class="bg-white shadow-md p-4">
-        <h1 class="text-xl font-bold">Admin Panel</h1>
-    </nav>
-    
-
-    <div class="grid grid-cols-12 flex-1 bg-gray-100">
-
-        <div class="bg-gray-600 col-span-6 p-4">
-            <p class="text-white">Sidebar Content</p>
-        </div>
-        
-
-        <div class="bg-blue-500 col-span-6  p-4">
-            <p class="text-white">Main Content</p>
-        </div>
+function Sidebar() {
+  return (
+    <div className="col-span-2 p-4 flex-col flex">
+      <Link className="text-white" to="/dashboard/home">home</Link>
+      <Link className="text-white" to="/dashboard/playlist">Play List</Link>
+      <Link className="text-white" to="/dashboard/add">3</Link>
     </div>
-</div>
-    );
+  );
 }
 
-export default Home;
+function Content() {
+  const { id } = useParams();
+
+  const renderContent = () => {
+    switch (id) {
+      case 'home':
+        return <p className="text-white">Main Content 1</p>;
+      case 'playlist':
+        return <p className="text-white">Main Content 2</p>;
+      case '3':
+        return <p className="text-white">Main Content 3</p>;
+      default:
+        return <p className="text-white">Please select a menu item.</p>;
+    }
+  };
+
+  return (
+    <div className="col-span-10 p-4">
+      {renderContent()}
+    </div>
+  );
+}
+
+function Dashboard() {
+  return (
+    <div className="h-screen flex flex-col">
+      <nav className="p-4">
+        <h1 className="text-xl text-white font-bold">Admin Panel</h1>
+      </nav>
+      <div className="grid grid-cols-12 flex-1">
+        <Sidebar />
+        <Routes>
+          <Route path=":id" element={<Content />} />
+        </Routes>
+      </div>
+    </div>
+  );
+}
+
+export default Dashboard;
