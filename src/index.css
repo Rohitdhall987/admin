@@ -76,3 +76,7 @@ html{
     min-width: 196px;
   }
 }
+
+.card {
+  @apply bg-gray-400 m-2 bg-opacity-20 rounded-md text-white p-3 ;
+}

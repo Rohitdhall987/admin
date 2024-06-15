@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Dashboard from './Home.jsx'
+import Dashboard from './dashboard.jsx'
 import AddSong from './AddSong.jsx'
 import Login from './login.jsx'
 import App from './App.jsx'
@@ -21,12 +21,16 @@ const router = createBrowserRouter([
 
     children:[
       {
-        path:"dashboard/*",
-        element:<Dashboard/>
+        path:"/",
+        element:<Login/>
       },
       {
         path:"login",
         element:<Login/>
+      },
+      {
+        path: "dashboard/*",
+        element:<Dashboard/>
       },
       {
         path:"addSong",

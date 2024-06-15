@@ -4,6 +4,14 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
 
 
+    useEffect(()=>{
+        const token=localStorage.getItem("token");
+
+            if(token!=null){
+                navigate("/dashboard");
+            }
+    });
+
 
 
     const [formType, setFormType] = useState(true); // true for login, false for register
@@ -34,7 +42,7 @@ function Login() {
 
                     if (data.token != null) {
                         localStorage.setItem('token', data.token); // Store the new token
-                        navigate('/home');
+                        navigate('/dashboard');
                     }
 
                 })
@@ -62,7 +70,7 @@ function Login() {
                     console.log(data);
                     if (data.token != null) {
                         localStorage.setItem('token', data.token); // Store the new token
-                        navigate('/home');
+                        navigate('/dashboard');
                     }
                 })
                 .catch(error => {
@@ -76,7 +84,7 @@ function Login() {
     return (
         <div className='flex items-center justify-center h-screen'>
 
-                <div className='bg-gray-400 bg-opacity-30 rounded-md text-white p-3 text-center w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/4 '>
+                <div className='card text-center w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/4 '>
                     {formType ? (
                         <form  onSubmit={submitLogin}>
                             <h2 className='text-xl pb-4' >{"Welcome :)"}</h2>
