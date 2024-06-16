@@ -35,7 +35,7 @@ function Dashboard() {
 
   return (
     <div className="h-screen flex flex-col">
-      <nav className="card">
+      <nav className="card flex justify-between">
         <div className='flex items-center'>
           <span className="material-icons cursor-pointer" onClick={toggle}>
             menu
