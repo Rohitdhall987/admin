@@ -1,11 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, useParams } from 'react-router-dom';
 
-import Sidebar from './dashBoardComponents/Sidebar';
-
-
-
-
+import Sidebar from './dashBoardComponents/Sidebar'; // Ensure Sidebar is properly imported.
 
 function Content() {
   const { id } = useParams();
@@ -24,29 +20,45 @@ function Content() {
   };
 
   return (
-    <div className="col-span-10 ">
-      {renderContent()}
-    </div>
+
+      renderContent()
+
   );
 }
 
 function Dashboard() {
+  const [showSidebar, setShowSidebar] = useState(true);
+
+  const toggle = () => {
+    setShowSidebar(!showSidebar);
+  };
+
   return (
     <div className="h-screen flex flex-col">
-      <nav className="card ">
-      <div className='flex items-center'>
-        <span className="material-icons" >
-          menu
-        </span>
-        <h1 className="text-xl font-bold px-2">Admin Panel</h1>
-      </div>
+      <nav className="card">
+        <div className='flex items-center'>
+          <span className="material-icons cursor-pointer" onClick={toggle}>
+            menu
+          </span>
+          <h1 className="text-xl font-bold px-2">Admin Panel</h1>
+        </div>
       </nav>
       <div className="grid grid-cols-12 flex-1">
-        <Sidebar />
-        <Routes>
-          <Route path=":id" element={<Content />} />
-          <Route path="/" element={<div className="col-span-10 p-4 text-white">Welcome to the Admin Panel!</div>} />
-        </Routes>
+        {showSidebar ? <Sidebar /> : null}
+
+        <div className={`${showSidebar ? "col-span-10" : "col-span-12"}  `}><Routes >
+          <Route
+            path="/"
+            element={
+              <div className="p-4 text-white">
+                Welcome to the Admin Panel!
+              </div>
+            }
+          />
+          <Route path=":id" element={<Content  />} />
+        </Routes> </div>
+
+        
       </div>
     </div>
   );
