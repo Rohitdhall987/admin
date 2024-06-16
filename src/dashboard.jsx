@@ -42,6 +42,9 @@ function Dashboard() {
           </span>
           <h1 className="text-xl font-bold px-2">Admin Panel</h1>
         </div>
+        <div>
+          <p>user</p>
+        </div>
       </nav>
       <div className="grid grid-cols-12 flex-1">
         {showSidebar ? <Sidebar /> : null}
