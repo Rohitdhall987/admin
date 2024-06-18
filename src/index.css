@@ -83,11 +83,12 @@ html{
 
 .menu-item{
   @apply my-2 flex py-2 justify-center md:justify-start rounded ;
+  transition: 200ms;
 }
 
 .menu-item:hover {
   @apply md:pl-2;
   background-image: linear-gradient(315deg, rgb(249, 22, 120),rgb(249, 115, 22,100%));;
-  transition: 200ms;
+
 }
 
