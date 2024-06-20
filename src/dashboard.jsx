@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Routes, Route, useParams } from 'react-router-dom';
 
 import Sidebar from './dashBoardComponents/Sidebar';
+import Songs from './dashBoardComponents/Songs';
+import Playlists from './dashBoardComponents/playlists';
 
 function Content() {
   const { id } = useParams();
@@ -9,11 +11,17 @@ function Content() {
   const renderContent = () => {
     switch (id) {
       case 'songs':
-        return <p className="card">Main Content 1</p>;
+        return <Songs/>;
       case 'playlist':
+        return <Playlists/>;
+      case 'categories':
         return <p className="card">Main Content 2</p>;
-      case '3':
-        return <p className="card">Main Content 3</p>;
+      case 'albums':
+        return <p className="card">Main Content 2</p>;
+      case 'artists':
+        return <p className="card">Main Content 2</p>;
+      case 'users':
+        return <p className="card">Main Content 2</p>;
       default:
         return <p className="text-white">Please select a menu item.</p>;
     }
