@@ -4,6 +4,10 @@ import { Routes, Route, useParams } from 'react-router-dom';
 import Sidebar from './dashBoardComponents/Sidebar';
 import Songs from './dashBoardComponents/Songs';
 import Playlists from './dashBoardComponents/playlists';
+import Categories from './dashBoardComponents/categories';
+import Albums from './dashBoardComponents/albums';
+import Artists from './dashBoardComponents/artists';
+import Users from './dashBoardComponents/users';
 
 function Content() {
   const { id } = useParams();
@@ -15,13 +19,13 @@ function Content() {
       case 'playlist':
         return <Playlists/>;
       case 'categories':
-        return <p className="card">Main Content 2</p>;
+        return <Categories/>;
       case 'albums':
-        return <p className="card">Main Content 2</p>;
+        return <Albums/>;
       case 'artists':
-        return <p className="card">Main Content 2</p>;
+        return <Artists/>;
       case 'users':
-        return <p className="card">Main Content 2</p>;
+        return <Users/>;
       default:
         return <p className="text-white">Please select a menu item.</p>;
     }
