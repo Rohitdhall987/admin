@@ -78,11 +78,12 @@ html{
 }
 
 .card {
-  @apply bg-gray-400 m-2 bg-opacity-20 rounded-md text-white p-3 ;
+  @apply  m-2 bg-gray-500 rounded-md text-white p-3 ;
+  background: linear-gradient(315deg, rgb(65, 65, 81,0.2) 40%,rgba(107, 114, 128, 0.2)  100%);
 }
 
 .menu-item{
-  @apply my-2 flex py-2 justify-center md:justify-start rounded ;
+  @apply mt-2 mb-1 flex py-2 justify-center md:justify-start rounded ;
   transition: 200ms;
 }
 

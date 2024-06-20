@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Routes, Route, useParams } from 'react-router-dom';
 
-import Sidebar from './dashBoardComponents/Sidebar'; // Ensure Sidebar is properly imported.
+import Sidebar from './dashBoardComponents/Sidebar';
 
 function Content() {
   const { id } = useParams();
 
   const renderContent = () => {
     switch (id) {
-      case 'home':
+      case 'songs':
         return <p className="card">Main Content 1</p>;
       case 'playlist':
         return <p className="card">Main Content 2</p>;
