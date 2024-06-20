@@ -83,9 +83,10 @@ html{
 }
 
 .menu-item{
-  @apply mt-2 mb-1 flex py-2 justify-center md:justify-start rounded ;
+  @apply mt-2 mb-1 flex py-2 justify-center md:justify-start rounded cursor-pointer ;
   transition: 200ms;
 }
+
 
 .menu-item:hover {
   @apply md:pl-2;
@@ -93,3 +94,20 @@ html{
 
 }
 
+@keyframes expand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Apply the animation to the hr */
+hr.animated {
+  animation: expand 1s forwards;
+  border: none;
+  border-top: 2px solid white; /* Adjust the color as needed */
+  margin: 0;
+  height: 2px; /* Adjust height as needed */
+}
