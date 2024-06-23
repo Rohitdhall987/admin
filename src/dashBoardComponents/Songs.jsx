@@ -9,7 +9,6 @@ function Songs(){
 
     //function to fetch songs from api
     const fetchData = async ()=> {
-        console.log(`Bearer ${localStorage.getItem("token")}`);
         fetch(
             '/api/songs/', {
                 method: 'GET',
@@ -27,7 +26,7 @@ function Songs(){
     
 
     return (
-        <div className="card-main">
+        <div className="card">
             <p className="pb-1">Songs</p>
             <hr/>
             <div className="flex justify-end">
@@ -39,19 +38,28 @@ function Songs(){
                     no Song added
                 </center>
                 :
-                <table>
-                    <tr>
+                <table className="card-main">
+                    <thead className="border-b-2 ">
+                    <tr >
                         <td>id</td>
+                        <td>Thumbnail</td>
+                        <td>Title</td>
                     </tr>
-                    <tr>
-                        {
+                    </thead>
+                    
+                    <tbody>
+                    {
                             songs.map(
-                                song=>
-                                    <td id={song._id} >{song._id}</td>
+                                song=><tr key={song._id} >
+                                        <td >{song._id}</td>
+                                        <td ><img className="w-12 h-12"  src={"http://localhost:5000"+song.thumbnailPath} /></td>
+                                        <td >{song.title}</td>
+                                    </tr>
                                 
                             )
                         }
-                    </tr>
+                    </tbody>
+                    
                 </table>
             }
         </div>

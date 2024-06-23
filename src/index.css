@@ -84,8 +84,11 @@ html{
 
 
 .card-main {
-  @apply  m-2 bg-gray-500 rounded-md text-white p-3 ;
+  @apply   bg-gray-500 rounded-md text-white ;
   background: linear-gradient(315deg, rgba(65, 65, 81, 0.641) 40%,rgba(107, 114, 128, 0.307)  100%);
+}
+.card-main td{
+  @apply p-1;
 }
 .menu-item{
   @apply mt-2 mb-1 flex py-2 justify-center md:justify-start rounded cursor-pointer ;
