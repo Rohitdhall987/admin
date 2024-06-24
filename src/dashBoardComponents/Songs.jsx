@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Songs() {
     const [songs, setSongs] = useState(null);
@@ -24,8 +25,11 @@ function Songs() {
             });
     }
 
+
+
+
     return (
-        <div className="card p-4">
+        <div className="card ">
             <p className="pb-1 text-lg font-semibold">Songs</p>
             <hr className="mb-4" />
             <div className="flex justify-end">
@@ -55,7 +59,7 @@ function Songs() {
                                     <p className="truncate">{song.singer}</p>
                                     <audio className="w-full" src={"http://localhost:5000" + song.filePath} controls />
                                     <div className="flex space-x-2">
-                                        <button className="bg-blue-500 text-white px-2 py-1 rounded">Edit</button>
+                                        <Link className="bg-blue-500 text-white px-2 py-1 rounded" to={"/dashboard/editSong?id="+song._id}>Edit</Link>
                                         <button className="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
                                     </div>
                                 </div>

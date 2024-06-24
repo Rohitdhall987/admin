@@ -10,7 +10,10 @@ import Artists from './dashBoardComponents/artists';
 import Users from './dashBoardComponents/users';
 
 function Content() {
+
   const { id } = useParams();
+
+
 
   const renderContent = () => {
     switch (id) {
@@ -25,6 +28,8 @@ function Content() {
       case 'artists':
         return <Artists/>;
       case 'users':
+        return <Users/>;
+      case 'editSong':
         return <Users/>;
       default:
         return <p className="text-white">Please select a menu item.</p>;
