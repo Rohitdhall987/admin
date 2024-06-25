@@ -3,8 +3,8 @@ import { Routes, Route, useParams } from 'react-router-dom';
 
 import Sidebar from './dashBoardComponents/Sidebar';
 import Songs from './dashBoardComponents/Songs';
-import Playlists from './dashBoardComponents/playlists';
-import Categories from './dashBoardComponents/categories';
+// import Playlists from './dashBoardComponents/playlists';
+// import Categories from './dashBoardComponents/categories';
 import Albums from './dashBoardComponents/albums';
 import Artists from './dashBoardComponents/artists';
 import Users from './dashBoardComponents/users';

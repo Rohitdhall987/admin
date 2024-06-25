@@ -26,6 +26,25 @@ function Songs() {
     }
 
 
+    const deleteSong=async(id)=>{
+        try{
+            fetch(
+                '/api/songs/', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem("token")}`,
+                    },
+                    body:{
+                        "id":id,
+                    }
+                }
+            );
+        }catch(e){
+            console.log("err===="+e);
+        }
+    }
+
 
 
     return (
@@ -60,7 +79,7 @@ function Songs() {
                                     <audio className="w-full" src={"http://localhost:5000" + song.filePath} controls />
                                     <div className="flex space-x-2">
                                         <Link className="bg-blue-500 text-white px-2 py-1 rounded" to={"/dashboard/editSong?id="+song._id}>Edit</Link>
-                                        <button className="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
+                                        <button className="bg-red-500 text-white px-2 py-1 rounded" onClick={(_)=>deleteSong(song._id)}>Delete</button>
                                     </div>
                                 </div>
                             ))

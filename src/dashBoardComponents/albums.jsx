@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Albums(){
     const [albums, setAlbums] = useState(null);
@@ -21,6 +22,8 @@ function Albums(){
             .then(res => {
                 console.log(res);
                 setAlbums(res);
+                console.log("============");
+                console.log(albums);
             });
     }
 
@@ -35,7 +38,7 @@ function Albums(){
                 <Link className="orange-gradient px-4 py-2 m-2 rounded" to="/dashboard/addalbum">Add</Link>
             </div>
             {
-                albums == null ?
+                albums == null?
                     <center className="text-gray-500">
                         No album Added
                     </center>
@@ -49,6 +52,7 @@ function Albums(){
                             <p className="font-bold">Audio</p>
                             <p className="font-bold">Actions</p>
                         </div>
+                        
                         {
                             albums.map(album => (
                                 <div key={album._id} className="grid grid-cols-6 gap-2 items-center mb-2">
