@@ -6,8 +6,8 @@ function Sidebar() {
   // Define sidebar items
   const sidebarItems = [
     { path: "/dashboard/songs", icon: "music_note", label: "Songs" },
-    { path: "/dashboard/playlist", icon: "queue_music", label: "Playlist" },
-    { path: "/dashboard/categories", icon: "category", label: "Categories" },
+    // { path: "/dashboard/playlist", icon: "queue_music", label: "Playlist" },
+    // { path: "/dashboard/categories", icon: "category", label: "Categories" },
     { path: "/dashboard/albums", icon: "album", label: "Albums" },
     { path: "/dashboard/artists", icon: "person", label: "Artists" },
     { path: "/dashboard/users", icon: "group", label: "Users" },

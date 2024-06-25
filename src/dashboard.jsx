@@ -20,10 +20,10 @@ function Content() {
     switch (id) {
       case 'songs':
         return <Songs/>;
-      case 'playlist':
-        return <Playlists/>;
-      case 'categories':
-        return <Categories/>;
+      // case 'playlist':
+      //   return <Playlists/>;
+      // case 'categories':
+      //   return <Categories/>;
       case 'albums':
         return <Albums/>;
       case 'artists':
