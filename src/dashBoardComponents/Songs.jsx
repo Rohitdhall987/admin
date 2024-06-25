@@ -33,7 +33,7 @@ function Songs() {
             <p className="pb-1 text-lg font-semibold">Songs</p>
             <hr className="mb-4" />
             <div className="flex justify-end">
-                <button className="orange-gradient px-4 py-2 m-2 rounded">Add</button>
+                <Link className="orange-gradient px-4 py-2 m-2 rounded" to="/dashboard/addSong">Add</Link>
             </div>
             {
                 songs == null ?

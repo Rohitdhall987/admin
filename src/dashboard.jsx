@@ -8,6 +8,7 @@ import Categories from './dashBoardComponents/categories';
 import Albums from './dashBoardComponents/albums';
 import Artists from './dashBoardComponents/artists';
 import Users from './dashBoardComponents/users';
+import AddSong from './dashBoardComponents/addSongFrom';
 
 function Content() {
 
@@ -31,6 +32,8 @@ function Content() {
         return <Users/>;
       case 'editSong':
         return <Users/>;
+      case 'addSong':
+        return <AddSong/>;
       default:
         return <p className="text-white">Please select a menu item.</p>;
     }
